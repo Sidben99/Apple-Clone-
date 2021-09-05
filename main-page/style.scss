@@ -1,0 +1,78 @@
+@import "../scss/helpers";
+@import "../scss/header\ &\ footer";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+.container{
+  max-width: 980px;
+  margin: auto;
+}
+
+main{
+
+  section#welcoming {
+    background-color: $secondary-bg;
+    p{
+      max-width: 940px;
+      padding: 10px 20px;
+      margin: auto;
+      text-align: center;
+      font-size: 14px;
+      a{
+        font-size: inherit;
+        padding: 0;
+        &::after{
+          content: "";
+          display: none;
+        }
+      }
+    }
+  }
+
+  section.main-sections{
+    position: relative;
+    padding: 0 20px;
+    margin: $mrg-section 0;
+    height: 692px;
+    .content{
+      padding-top: $padd-big;
+      width: max-content;
+      margin: auto;
+      text-align: center;
+      p:first-of-type{
+        font-weight: bold;
+        font-size: 24px;
+      }
+      p,.links{
+        margin-top: 10px;
+      }
+      .links{
+        @include flex($justify:center);
+      }
+    }
+    figure{
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_largetall.jpg") center bottom/cover;
+    }
+  }
+
+}
+
+
+
