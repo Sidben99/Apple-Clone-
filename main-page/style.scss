@@ -1,115 +1,195 @@
 @import "../scss/helpers";
 @import "../scss/header\ &\ footer";
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-a{
-  text-decoration: none;
-}
+main {
+  margin-top: 38px;
 
-ul{
-  list-style: none;
-}
-
-.container{
-  max-width: 980px;
-  margin: auto;
-}
-
-main{
-  section#welcoming {
-    background-color: $secondary-bg;
-    p{
-      max-width: 940px;
-      padding: 10px 20px;
-      margin: auto;
-      text-align: center;
-      font-size: 14px;
-      a{
-        font-size: inherit;
-        padding: 0;
-        &::after{
-          content: "";
-          display: none;
-        }
-      }
-    }
-  }
-
-  section.main-sections{
+  section.main-sections {
     position: relative;
     padding: 0 20px;
     margin: $mrg-section 0;
     height: 692px;
-    .content{
+
+    .content {
       padding-top: $padd-big;
-      width: max-content;
+      width: 100%;
       margin: auto;
       text-align: center;
-      p:first-of-type{
+      p:first-of-type {
         font-weight: bold;
         font-size: 24px;
       }
-      p,.links{
+      p,
+      .links {
         margin-top: 10px;
       }
-      .links{
-        @include flex($justify:center);
+      .links {
+        @include flex($justify: center);
       }
     }
-    figure{
+    figure {
       position: absolute;
       z-index: -1;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_largetall.jpg") center bottom/cover;
-      
+      background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_largetall.jpg")
+        center bottom/cover;
     }
-    @media screen and (max-height:600px){
-      height: 580px;
-      figure{
-
-        background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_large.jpg") center bottom/cover;
-      }
-      }
-    @media screen and (max-width:734px) {
-      figure{
-
-        background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_small.jpg") center bottom/cover;
-      }
-    }  
   }
-  #iPhone-12-Pro-section{
+  #iPhone-12-section {
+    @media screen and (max-height: 600px) {
+      height: 580px;
+      figure {
+        background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_large.jpg")
+          center bottom/cover;
+      }
+    }
+    @media screen and (max-width: 734px) {
+      figure {
+        background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_small.jpg")
+          center bottom/cover;
+      }
+    }
+  }
+  #iPhone-12-Pro-section {
     color: $white;
-    p:not(:first-of-type){
+    p:not(:first-of-type) {
       color: $text-color;
     }
-    figure{
-       background: url("../img/main\ img/iphone_12_pro_us__e5oyysg4k0ya_large.jpg") center bottom/cover;
-      // background: url("../img/main\ img/iphone_12_updated__jepm2xpxncuy_largetall.jpg") center bottom/cover;
-      
+    figure {
+      background: url("../img/main\ img/iphone_12_pro_us__e5oyysg4k0ya_large.jpg")
+        center bottom/cover;
     }
-     @media screen and (max-height:600px){
+    @media screen and (max-height: 600px) {
       height: 580px;
-      figure{
-
-        background: url("../img/main\ img/iphone_12_pro_us__e5oyysg4k0ya_medium.jpg") center bottom/cover;
+      figure {
+        background: url("../img/main\ img/iphone_12_pro_us__e5oyysg4k0ya_medium.jpg")
+          center bottom/cover;
       }
+    }
+    @media screen and (max-width: 734px) {
+      figure {
+        background: url("../img/main\ img/iphone_12_pro_us__e5oyysg4k0ya_small_2x.jpg")
+          center bottom/cover;
       }
-    @media screen and (max-width:734px) {
-      figure{
-
-        background: url("../img/main\ img/iphone_12_pro_us__e5oyysg4k0ya_small_2x.jpg") center bottom/cover;
-      }
-    } 
+    }
   }
-
+  #iPad-pro-section {
+    color: $white;
+    figure {
+      background: url("../img/main\ img/hero_ipad_pro_non_avail__fcrsmhs4b7ma_large.jpg")
+        center bottom/cover;
+    }
+    @media screen and (max-height: 600px) {
+      height: 580px;
+      figure {
+        background: url("../img/main\ img/promo_ipad_pro_non_avail__c6f02v7gnwgi_large.jpg")
+          center bottom/cover;
+      }
+    }
+    @media screen and (max-width: 734px) {
+      figure {
+        background: url("../img/main\ img/hero_ipad_pro_non_avail__fcrsmhs4b7ma_small_2x.jpg")
+          center bottom/cover;
+      }
+    }
+  }
+  #products {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 10px;
+      @media screen and (max-width: 734px) {
+        grid-template-columns: 1fr;
+      }
+      .product-sections {
+        @extend .main-sections;
+        .content {
+          max-width: 400px;
+        }
+        height: 560px;
+        figure {
+          padding: 0 100px;
+        }
+      }
+      #iMac-section {
+        figure {
+          background: url("../img/mac\ img/hero_imac_24__eq5phrdpwjyq_large.jpg")
+            center center no-repeat;
+          background-size: 500px 250px;
+          @media screen and (max-width: 1067px) {
+            background: url("../img/mac\ img/hero_imac_24__eq5phrdpwjyq_small_2x.jpg")
+              center center no-repeat;
+            background-size: 500px 250px;
+          }
+        }
+      }
+      #Watch-section {
+        color: $white;
+        figure {
+          background: url("../img/main\ img/promo_watch_series_6_lte__f8lrasjnry2y_large.jpg")
+            center bottom/cover;
+          @media screen and (max-width: 1067px) {
+            background: url("../img/main\ img/promo_watch_series_6_lte__f8lrasjnry2y_small.jpg")
+              center bottom/cover;
+          }
+        }
+      }
+      #Fitness-section {
+        figure {
+          background: url("../img/main\ img/hero__dvsxv8smkkgi_large.jpg") 0px
+            75% no-repeat;
+          @media screen and (max-width: 1067px) {
+            background: url("../img/main\ img/tile__cauwwcyyn9hy_small.jpg") 0px
+              75% no-repeat;
+          }
+        }
+      }
+      #Buy-a-Mac-or-iPad-for-college-Get-Airpods-section {
+        figure {
+          background: url("../img/main\ img/promo_bts__bg3cb4kaoqoi_large.jpg")
+            center bottom/cover no-repeat;
+          background-size: 200% 100%;
+          @media screen and (max-width: 1067px) {
+            background: url("../img/main\ img/promo_bts__bg3cb4kaoqoi_small.jpg")
+              center bottom/cover no-repeat;
+          }
+        }
+      }
+      #Card-section {
+        figure {
+          background: url("../img/main\ img/tile__cauwwcyyn9hy_large.jpg")
+            center bottom/cover;
+          @media screen and (max-width: 1067px) {
+            background: url("../img/main\ img/tile__cauwwcyyn9hy_small (1).jpg")
+              center bottom/cover;
+          }
+        }
+      }
+      #without-title {
+        position: relative;
+        .content {
+          a {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-60px);
+            color: $white;
+            text-align: center;
+          }
+        }
+        figure {
+          background: url("../img/main\ img/tile_stillwater__bkfeir33i5ci_large.jpg")
+            center bottom/cover;
+          @media screen and (max-width: 1067px) {
+            background: url("../img/main\ img/tile_stillwater__bkfeir33i5ci_small.jpg")
+              center bottom/cover;
+          }
+        }
+      }
+    }
+  }
 }
-
-
-

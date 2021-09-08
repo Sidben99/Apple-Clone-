@@ -57,71 +57,8 @@ $mrg-section: 7px;
   row-gap: $row-gap;
 }
 
-@mixin bg-img($link, $x-axis: center, $y-axis: center) {
-  background: url($link) $x-axis $y-axis/cover;
-}
+/*Click Section*/
 
-.darker-link {
-  color: $text-blue-1;
-  position: relative;
-  padding-right: 15px;
-  text-transform: capitalize;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-.lighter-link {
-  text-transform: capitalize;
-  color: $text-blue-2;
-  position: relative;
-  padding-right: 15px;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.darker-link::after,
-.lighter-link::after {
-  position: absolute;
-  right: 0;
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-top: 1.5px solid;
-  border-right: 1.5px solid;
-  transform: rotate(45deg) translateY(100%);
-  color: inherit;
-}
-.darker-link::after {
-  border-color: $text-blue-1;
-}
-.darker-link-big {
-  @extend .darker-link;
-  display: inline-block;
-  transform: scale(1.15);
-}
-.lighter-link-big {
-  @extend .darker-link;
-  display: inline-block;
-  transform: scale(1.15);
-}
-.lighter-link::after {
-  border-color: $text-blue-2;
-}
-.primary-btn-dark,
-.primary-btn-light {
-  color: white;
-  border-radius: 20px;
-  font-size: 17px;
-  padding: 10px 20px;
-  border: none;
-}
-.primary-btn-light {
-  background-color: $text-blue-2;
-}
-.primary-btn-dark {
-  background-color: $text-blue-1;
-}
 @mixin heading-size($original, $small) {
   font-size: $original;
   @media screen and (max-width: 734px) {
@@ -135,7 +72,7 @@ h2 {
   @include heading-size(50px, 34px);
 }
 h3 {
-  @include heading-size(50px, 34px);
+  @include heading-size(40px, 34px);
 }
 h4 {
   @include heading-size(36px, 32px);
@@ -150,3 +87,11 @@ li {
   @include heading-size(17px, 14px);
 }
 // placehoders
+%new {
+  color: rgb(255, 59, 59);
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
