@@ -50,57 +50,13 @@ li {
     li {
       font-size: 14px; } }
 
-@font-face {
-  font-family: "FontsFree-Net-SFProDisplay-Regular";
-  src: url(../fonts/FontsFree-Net-SFProDisplay-Regular.ttf) format("truetype"); }
-@font-face {
-  font-family: "FontsFree-Net-SFProDisplay-BoldItalic";
-  src: url(../fonts/FontsFree-Net-SFProDisplay-BoldItalic.ttf) format("truetype"); }
-* {
-  font-family: "FontsFree-Net-SFProDisplay-Regular", sans-serif; }
-
-/*Click Section*/
-h1 {
-  font-size: 52px; }
-  @media screen and (max-width: 734px) {
-    h1 {
-      font-size: 48px; } }
-
-h2 {
-  font-size: 50px; }
-  @media screen and (max-width: 734px) {
-    h2 {
-      font-size: 34px; } }
-
-h3 {
-  font-size: 40px; }
-  @media screen and (max-width: 734px) {
-    h3 {
-      font-size: 34px; } }
-
-h4 {
-  font-size: 36px; }
-  @media screen and (max-width: 734px) {
-    h4 {
-      font-size: 32px; } }
-
-h5 {
-  font-size: 23px; }
-  @media screen and (max-width: 734px) {
-    h5 {
-      font-size: 19px; } }
-
-p,
-a,
-span,
-li {
-  font-size: 17px; }
-  @media screen and (max-width: 734px) {
-    p,
-    a,
-    span,
-    li {
-      font-size: 14px; } }
+main #products-bar .container ul .product-from-bar:nth-child(4)::after {
+  color: #ff3b3b;
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); }
 
 .darker-link, .darker-link-big, .lighter-link-big {
   color: #0066cc;
@@ -438,129 +394,33 @@ footer .container {
 
 main {
   margin-top: 38px; }
-  main section.main-sections, main #products .wrapper section.product-sections {
-    position: relative;
-    padding: 0 20px;
-    margin: 7px 0;
-    height: 692px; }
-    main section.main-sections .content, main #products .wrapper section.product-sections .content {
-      padding-top: 47px;
-      width: 100%;
-      margin: auto;
-      text-align: center; }
-      main section.main-sections .content p:first-of-type, main #products .wrapper section.product-sections .content p:first-of-type {
-        font-weight: bold;
-        font-size: 24px; }
-      main section.main-sections .content p, main #products .wrapper section.product-sections .content p,
-      main section.main-sections .content .links,
-      main #products .wrapper section.product-sections .content .links {
-        margin-top: 10px; }
-      main section.main-sections .content .links, main #products .wrapper section.product-sections .content .links {
+  main #products-bar {
+    padding: 30px 0;
+    background-color: #f5f5f7; }
+    main #products-bar .container {
+      max-width: 1024px;
+      overflow: hidden; }
+      main #products-bar .container ul {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: 30px;
-        flex-wrap: wrap; }
-    main section.main-sections figure, main #products .wrapper section.product-sections figure {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("../img/main img/iphone_12_updated__jepm2xpxncuy_largetall.jpg") center bottom/cover; }
-  @media screen and (max-height: 600px) {
-    main #iPhone-12-section {
-      height: 580px; }
-      main #iPhone-12-section figure {
-        background: url("../img/main img/iphone_12_updated__jepm2xpxncuy_large.jpg") center bottom/cover; } }
-  @media screen and (max-width: 734px) {
-    main #iPhone-12-section figure {
-      background: url("../img/main img/iphone_12_updated__jepm2xpxncuy_small.jpg") center bottom/cover; } }
-  main #iPhone-12-Pro-section {
-    color: #fff; }
-    main #iPhone-12-Pro-section p:not(:first-of-type) {
-      color: #86868b; }
-    main #iPhone-12-Pro-section figure {
-      background: url("../img/main img/iphone_12_pro_us__e5oyysg4k0ya_large.jpg") center bottom/cover; }
-    @media screen and (max-height: 600px) {
-      main #iPhone-12-Pro-section {
-        height: 580px; }
-        main #iPhone-12-Pro-section figure {
-          background: url("../img/main img/iphone_12_pro_us__e5oyysg4k0ya_medium.jpg") center bottom/cover; } }
-    @media screen and (max-width: 734px) {
-      main #iPhone-12-Pro-section figure {
-        background: url("../img/main img/iphone_12_pro_us__e5oyysg4k0ya_small_2x.jpg") center bottom/cover; } }
-  main #iPad-pro-section {
-    color: #fff; }
-    main #iPad-pro-section figure {
-      background: url("../img/main img/hero_ipad_pro_non_avail__fcrsmhs4b7ma_large.jpg") center bottom/cover; }
-    @media screen and (max-height: 600px) {
-      main #iPad-pro-section {
-        height: 580px; }
-        main #iPad-pro-section figure {
-          background: url("../img/main img/promo_ipad_pro_non_avail__c6f02v7gnwgi_large.jpg") center bottom/cover; } }
-    @media screen and (max-width: 734px) {
-      main #iPad-pro-section figure {
-        background: url("../img/main img/hero_ipad_pro_non_avail__fcrsmhs4b7ma_small_2x.jpg") center bottom/cover; } }
-  main #products .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px; }
-    @media screen and (max-width: 734px) {
-      main #products .wrapper {
-        grid-template-columns: 1fr; } }
-    main #products .wrapper .product-sections {
-      height: 560px; }
-      main #products .wrapper .product-sections .content {
-        max-width: 400px; }
-      main #products .wrapper .product-sections figure {
-        padding: 0 100px; }
-    main #products .wrapper #iMac-section figure {
-      background: url("../img/mac img/hero_imac_24__eq5phrdpwjyq_large.jpg") center center no-repeat;
-      background-size: 500px 250px; }
-      @media screen and (max-width: 1067px) {
-        main #products .wrapper #iMac-section figure {
-          background: url("../img/mac img/hero_imac_24__eq5phrdpwjyq_small_2x.jpg") center center no-repeat;
-          background-size: 500px 250px; } }
-    main #products .wrapper #Watch-section {
-      color: #fff; }
-      main #products .wrapper #Watch-section figure {
-        background: url("../img/main img/promo_watch_series_6_lte__f8lrasjnry2y_large.jpg") center bottom/cover; }
-        @media screen and (max-width: 1067px) {
-          main #products .wrapper #Watch-section figure {
-            background: url("../img/main img/promo_watch_series_6_lte__f8lrasjnry2y_small.jpg") center bottom/cover; } }
-    main #products .wrapper #Fitness-section figure {
-      background: url("../img/main img/hero__dvsxv8smkkgi_large.jpg") 0px 75% no-repeat; }
-      @media screen and (max-width: 1067px) {
-        main #products .wrapper #Fitness-section figure {
-          background: url("../img/main img/tile__cauwwcyyn9hy_small.jpg") 0px 75% no-repeat; } }
-    main #products .wrapper #Buy-a-Mac-or-iPad-for-college-Get-Airpods-section figure {
-      background: url("../img/main img/promo_bts__bg3cb4kaoqoi_large.jpg") center bottom/cover no-repeat;
-      background-size: 200% 100%; }
-      @media screen and (max-width: 1067px) {
-        main #products .wrapper #Buy-a-Mac-or-iPad-for-college-Get-Airpods-section figure {
-          background: url("../img/main img/promo_bts__bg3cb4kaoqoi_small.jpg") center bottom/cover no-repeat; } }
-    main #products .wrapper #Card-section figure {
-      background: url("../img/main img/tile__cauwwcyyn9hy_large.jpg") center bottom/cover; }
-      @media screen and (max-width: 1067px) {
-        main #products .wrapper #Card-section figure {
-          background: url("../img/main img/tile__cauwwcyyn9hy_small (1).jpg") center bottom/cover; } }
-    main #products .wrapper #without-title {
-      position: relative; }
-      main #products .wrapper #without-title .content a {
-        position: absolute;
-        bottom: 50px;
-        left: 50%;
-        transform: translateX(-60px);
-        color: #fff;
-        text-align: center; }
-      main #products .wrapper #without-title figure {
-        background: url("../img/main img/tile_stillwater__bkfeir33i5ci_large.jpg") center bottom/cover; }
-        @media screen and (max-width: 1067px) {
-          main #products .wrapper #without-title figure {
-            background: url("../img/main img/tile_stillwater__bkfeir33i5ci_small.jpg") center bottom/cover; } }
+        flex-wrap: nowrap; }
+        main #products-bar .container ul .product-from-bar {
+          text-align: center;
+          position: relative;
+          flex-basis: 100% /11;
+          padding-bottom: 15px; }
+          main #products-bar .container ul .product-from-bar:nth-child(4)::after {
+            content: "New"; }
+          main #products-bar .container ul .product-from-bar img {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto; }
+          main #products-bar .container ul .product-from-bar span {
+            font-size: 12px;
+            position: relative; }
 
 /*# sourceMappingURL=style.css.map */

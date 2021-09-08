@@ -1,222 +1,288 @@
 @import "helpers";
+@import "compontents";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-header{
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 980px;
+  margin: auto;
+}
+header {
   background-color: $bg-dark-1;
-
-  nav{
-    
-    max-width:980px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  // filter: blur(1.5px);
+  nav {
+    max-width: 980px;
     margin: auto;
     @include flex();
     padding: 5px 20px;
     z-index: 3000000;
-    
-    .logo,.bag{
+    // filter: blur(0px);
+    .logo,
+    .bag {
       color: $secondary-bg;
       opacity: 0.8;
       transition: 0.3s color;
       cursor: pointer;
-      &:hover{
+      &:hover {
         opacity: 1;
       }
     }
     .logo {
-      a{
+      a {
         color: inherit;
       }
-      
     }
-  ul{
-    flex-grow: 1;
-    @include flex($justify:space-around , $wrap:nowrap);
-    @media screen and (max-width:767px){
-      position: fixed;
-      top: 38px;
-      left: 0;
-      width: 100%;
-      transform: scaleY(0);
-      transform-origin: top center;
-      background-color: $black;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0 30px;
-      overflow: hidden;
-      opacity: 0;
-      transition: 0.5s transform, 0.25s opacity;
-      z-index: 2;
-      li:not(:last-child){
-        border-bottom: 1px solid $secondary-bg;
-        padding-bottom: 10px;
+    ul {
+      flex-grow: 1;
+      @include flex($justify: space-around, $wrap: nowrap);
+      @media screen and (max-width: 767px) {
+        position: fixed;
+        top: 38px;
+        left: 0;
         width: 100%;
+        transform: scaleY(0);
+        transform-origin: top center;
+        background-color: $black;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 30px;
+        overflow: hidden;
+        opacity: 0;
+        transition: 0.5s transform, 0.25s opacity;
+        z-index: 2;
+        li:not(:last-child) {
+          border-bottom: 1px solid $secondary-bg;
+          padding-bottom: 10px;
+          width: 100%;
+        }
+        li:last-child {
+          order: -1;
+        }
       }
-      li:last-child{
-        order: -1;
+      li {
+        color: $secondary-bg;
+        opacity: 0.8;
+        transition: 0.3s color;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+        a {
+          color: inherit;
+          font-size: 14px;
+        }
       }
-     
     }
-    li{
-      color: $secondary-bg;
-      opacity: 0.8;
-      transition: 0.3s color;
-      cursor: pointer;
-      &:hover{
+    #bars {
+      display: none;
+      &:checked ~ ul {
+        transform: scaleY(1);
+        padding: 20px 30px 100px;
+        overflow: visible;
         opacity: 1;
       }
-      a{
-        color: inherit;
-        font-size: 14px;
+    }
+    label {
+      @media screen and (max-width: 767px) {
+        @include flex(
+          $direction: column,
+          $justify: space-between,
+          $gap: 0,
+          $wrap: nowrap
+        );
+        order: -1;
+      }
+      width: 20px;
+      height: 10px;
+      display: none;
+      & > * {
+        width: 100%;
+        height: 2px;
+        background-color: $secondary-bg;
       }
     }
   }
-  #bars{
-    display: none;
-    &:checked ~ ul{
-      transform: scaleY(1);
-      padding: 20px 30px  100px ;
-      overflow: visible;
-      opacity: 1;
-    }
-  }
-  label{
-    @media  screen and (max-width:767px) {
-      @include flex($direction:column , $justify:space-between , $gap:0, $wrap:nowrap);
-      order: -1;
-    }
-    width: 20px;
-    height: 10px;
-    display: none;
-    & > *{
-      width: 100%;
-      height: 2px;
-      background-color: $secondary-bg;
-    }
-  }
-}
 }
 
-footer{
-  .container{
+footer {
+  .container {
     padding: 0 20px;
-    a,li,ul,p{
+    a,
+    li,
+    ul,
+    p {
       font-size: 12px;
     }
 
-    section.footer-top{
-
-      
+    section.footer-top {
       color: $text-color;
-      article{
+      article {
         padding: 20px 0;
         border-bottom: 1px solid $text-color;
       }
-      
-      article , ol{
-        & > *{
+
+      article,
+      ol {
+        & > * {
           margin-bottom: 10px;
         }
       }
     }
 
-
-    section.footer-links{
+    section.footer-links {
       padding: 20px 0;
-      h5{
-        font-size: 12px ;
+      h5 {
+        font-size: 12px;
         margin-bottom: 7px;
       }
-      .wrapper{
+      .wrapper {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
-        grid-template-rows: repeat(4 , max-content);
-        .Shop-and-Learn{
+        grid-template-rows: repeat(4, max-content);
+        @media screen and (max-width: 767px) {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(10, max-content);
+          // & > div {
+          //   grid-column: 1 / 2;
+          // }
+        }
+        .Shop-and-Learn {
           grid-column: 1 / 2;
           grid-row: 1 / span 4;
+          @media screen and (max-width: 767px) {
+            grid-row: 1 /2;
+            grid-column: 1 / 2;
+          }
         }
-        .Services{
+        .Services {
           grid-column: 2 / 3;
           grid-row: 1 / span 3;
+          @media screen and (max-width: 767px) {
+            grid-row: 2/3;
+            grid-column: 1 / 2;
+          }
         }
-        .Account{
+        .Account {
           grid-column: 2 / 3;
           grid-row: 4 / 5;
+          @media screen and (max-width: 767px) {
+            grid-row: 3/4;
+            grid-column: 1 / 2;
+          }
         }
-        .Apple-Store{
+        .Apple-Store {
           grid-column: 3 / 4;
           grid-row: 1 / span 4;
+          @media screen and (max-width: 767px) {
+            grid-row: 4/5;
+            grid-column: 1 / 2;
+          }
         }
-        .For-Business{
+        .For-Business {
           grid-column: 4 / 5;
           grid-row: 1 / 2;
+          @media screen and (max-width: 767px) {
+            grid-row: 5/6;
+            grid-column: 1 / 2;
+          }
         }
-        .For-Education{
+        .For-Education {
           grid-column: 4 / 5;
           grid-row: 2 / 3;
-
+          @media screen and (max-width: 767px) {
+            grid-row: 6/7;
+            grid-column: 1 / 2;
+          }
         }
-        .For-Healthcare{
+        .For-Healthcare {
           grid-column: 4 / 5;
           grid-row: 3 / 4;
+          @media screen and (max-width: 767px) {
+            grid-row: 7/8;
+            grid-column: 1 / 2;
+          }
         }
-        .For-Government{
+        .For-Government {
           grid-column: 4 / 5;
           grid-row: 4 / 5;
+          @media screen and (max-width: 767px) {
+            grid-row: 8/9;
+            grid-column: 1 / 2;
+          }
         }
-        .Apple-Values{
+        .Apple-Values {
           grid-column: 5 / 6;
           grid-row: 1 / span 2;
-
+          @media screen and (max-width: 767px) {
+            grid-row: 9/10;
+            grid-column: 1 / 2;
+          }
         }
-        .About-Apple{
+        .About-Apple {
           grid-column: 5 / 6;
           grid-row: 3 / span 2;
+          @media screen and (max-width: 767px) {
+            grid-row: 10/11;
+            grid-column: 1 / 2;
+          }
         }
-        ul{
-          li{
+        ul {
+          li {
             margin-bottom: 7px;
-            a{
+            a {
               color: $text-color;
             }
           }
         }
-        
       }
-      & > p{
+      & > p {
         margin-top: 20px;
-        a{
+        a {
           padding: 0;
-          &::after{
+          &::after {
             display: none;
           }
         }
       }
     }
 
-
-    section.footer-bottom{
+    section.footer-bottom {
       border-top: 1px solid $text-color;
       padding: 30px 0;
-      @include flex($justify:flex-start);
-      p:last-child{
+      @include flex($justify: flex-start);
+      p:last-child {
         flex-grow: 1;
         text-align: end;
       }
-      ul{
-        @include flex($gap:0px);
-        li{
+      ul {
+        @include flex($gap: 0px);
+        li {
           padding: 2.5px 10px;
           color: $text-color;
-          &:not(:last-child){
+          &:not(:last-child) {
             border-right: 1px solid $text-color;
           }
-          a{
+          a {
             color: $text-color;
           }
         }
       }
     }
-
-
-
   }
 }

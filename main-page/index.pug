@@ -4,10 +4,11 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href="style.css")
     link(rel="stylesheet" , href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" , media="all") 
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined")
-    title Apple 
+    link(rel="stylesheet", href="style.css")
+    block head
+      title Apple 
   body 
     header
       nav 
@@ -24,21 +25,52 @@ html(lang="en")
           li #[i(class="fas fa-search")]
         .bag 
           span(class="material-icons-outlined") shopping_bag
-    main 
-      section#welcoming 
-        p We look forward to welcoming you  to our stores. Whether you #[a(href="#" class="lighter-link") shop in a store] or #[a(href="#" class="lighter-link") shop online], our Specialists can help you buy the products you love.
-      mixin main-sections ( title ,linkColor, ...paragraphs)
-        -let sectionId = title.split(" ").join("-") + "-section";
-        section(id=`${sectionId}` class="main-sections")
-          a(href="#" ) 
-          .content 
-            h2= title
-            each paragraph in paragraphs 
-              p= paragraph
-            .links #[a(href="#" class=`${linkColor}-link-big`) learn more ] #[a(href="#" class=`${linkColor}-link-big`) buy] 
-          figure
-      +main-sections("iPhone 12","darker","Blast past fast","From $29.12/mo. for 24/mo. for $699 before trade-in","Buy directly from apple with special carrier offers")   
-      +main-sections("iPhone 12 Pro","lighter","It's a leap year","From $41.62/mo. for 24/mo. for $999 before trade-in","Buy directly from apple with special carrier offers")   
+    main
+      block main-content
+        section.welcoming-darker
+          p We look forward to welcoming you  to our stores. Whether you #[a(href="#" class="lighter-link") shop in a store] or #[a(href="#" class="lighter-link") shop online], our Specialists can help you buy the products you love.
+        mixin main-sections ( title ,linkColor, ...paragraphs)
+          -let sectionId = title.split(" ").join("-") + "-section";
+          section(id=`${sectionId}` class="main-sections")
+            a(href="#" class="click-section") 
+            .content 
+              h2= title
+              each paragraph in paragraphs 
+                p= paragraph
+              .links #[a(href="#" class=`${linkColor}-link-big`) learn more ] #[a(href="#" class=`${linkColor}-link-big`) buy] 
+            figure
+        +main-sections("iPhone 12","darker","Blast past fast","From $29.12/mo. for 24/mo. for $699 before trade-in","Buy directly from apple with special carrier offers")   
+        +main-sections("iPhone 12 Pro","lighter","It's a leap year","From $41.62/mo. for 24/mo. for $999 before trade-in","Buy directly from apple with special carrier offers")   
+        +main-sections("iPad pro","lighter","SuperCharged by the apple M1 chip")
+        //- Section Products
+        section#products
+          .wrapper
+            mixin product(linkColor,title,paragraph,...links)
+              if(title !== undefined)
+                -let sectionId = title.split(" ").map(item=> item.endsWith(".") ? item.slice(0,item.length - 1) : item).join("-") + "-section";
+                section(id=`${sectionId}` class="product-sections")
+                  a(href="#" class="click-section")
+                  .content
+                    h3=title
+                    if(paragraph !== undefined)
+                      p=paragraph
+                    .links 
+                      a(href="#" class=`${linkColor}-link`)= links[0] 
+                      if(links[1] !== undefined) 
+                        a(href="#" class=`${linkColor}-link`)= links[1]
+                  figure      
+              else
+                section(id="without-title" class="product-sections")
+                  a(href="#" class="click-section")
+                  .content
+                    a(href = "#") Stream the new episodes  
+                  figure   
+            +product("darker","iMac","Say hello","Learn More","Buy")          
+            +product("lighter","Watch","The feuture of healthis on your wrist","Learn More","Buy")          
+            +product("darker","Fitness","The first fitness service powerred by Apple Watch. Try it for 1 month free.","Learn More","Try it free")          
+            +product("lighter","Buy a Mac or iPad for college. Get Airpods.",undefined,"Seve with education pricing",undefined)          
+            +product("darker","Card","Get up 3% Dialy cash back with every purchase","Learn More","Apply now")          
+            +product("darker",undefined)          
     footer
       .container  
         section.footer-top 
