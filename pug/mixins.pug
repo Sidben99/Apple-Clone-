@@ -1,0 +1,20 @@
+//- Abdou Mixins
+mixin products-bar(...infos)
+                    -let images = infos.filter(i => i.endsWith(".svg"))
+                    -let paragraphs = infos.filter(i => !i.endsWith(".svg"))
+                    -let length = images.lenght;
+                    ul
+                        each image,index in images
+                            li.product-from-bar
+                                a(href="#" class="click-section")
+                                img(src= image alt="My Happy SVG")
+                                span= paragraphs[index]
+
+mixin welcoming(paragraph,link,color)
+            section(class=`welcoming-${color}`)
+                p=paragraph 
+                    a(href="#" class=`${color}-link`)= link
+
+
+
+//- Sidahmed Mixins                    
