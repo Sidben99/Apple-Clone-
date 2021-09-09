@@ -1,22 +1,9 @@
 extends ../main-page/index.pug
+include ../pug/mixins
 block head
     title Mac
 block main-content
         section#products-bar
             .container
-                mixin products-bar(...infos)
-                    -let images = infos.filter(i => i.endsWith(".svg"))
-                    -let paragraphs = infos.filter(i => !i.endsWith(".svg"))
-                    -let length = images.lenght;
-                    ul
-                        each image,index in images
-                            li.product-from-bar
-                                a(href="#" class="click-section")
-                                img(src= image alt="My Happy SVG")
-                                span= paragraphs[index]
                 +products-bar("../img/mac\ img/macbookair_light__fj8r9488gr6u_large.svg","../img/mac\ img/macbook_pro_13_light__erjvypflcis2_large.svg","../img/mac\ img/macbook_pro_16_light__cialfoihbk02_large.svg","../img/mac\ img/imac_24__e0tdvilut5qq_large%20(1).svg","../img/mac\ img/imac_27_light__gbkfmaud0qaa_large.svg","../img/mac\ img/mac_pro_light__dq2h14cvit6q_large.svg","../img/mac\ img/mac_mini_light__chxdj29efvrm_large%20(1).svg","../img/mac\ img/mac_compare__cixm3zhf3k76_large.svg","../img/mac\ img/mac_pro_display_light__ditp43qhvlm6_large.svg","../img/mac\ img/mac_accessories_light__bow96z0024qa_large.svg","../img/mac\ img/mac_os.svg","MacBook Air","MacBook Pro 13","MacBook Pro 16","iMac 24","iMac 27","Mac Pro","Mac Mini","Compare","Pro Display XDR","Accessories","Big Sur")  
-        mixin welcoming(paragraph,link,color)
-            section(class=`welcoming-${color}`)
-                p=paragraph 
-                    a(href="#" class=`${color}-link`)= link
         +welcoming("Save on Mac for college with education pricing. And get AirPods.◊ ","Shop Now","darker")        
